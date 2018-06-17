@@ -1,6 +1,6 @@
 from urllib.request import urlopen as uReq
 from bs4 import BeautifulSoup as soup
-my_url = 'https://coinmarketcap.com/'
+my_url = 'https://coinmarketcap.com/all/views/all/'
 
 #opening connection, grabbing page
 uClient = uReq(my_url)
@@ -31,10 +31,18 @@ for container in containers[1:]:
 
     name = N[0].text
     market_cap = MC[0].text.strip()
-    price = P[0].text
-    volume = V[0].text
-    percent_change = PC[0].text
-    
-    f.write(name + "," + market_cap + "," + price + "," + volume.replace(",", "|") + "," + percent_change + "\n")
+    try:
+        price = P[0].text
+    except: 
+        pass
+    try:    
+        volume = V[0].text
+    except: 
+        pass
+    try:    
+        percent_change = PC[0].text
+    except: 
+        pass
+    f.write(name + "," + market_cap.replace(",", "") + "," + price.replace(",", "") + "," + volume.replace(",", "") + "," + percent_change + "\n")
 
 f.close()
