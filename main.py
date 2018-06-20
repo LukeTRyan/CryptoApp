@@ -1,4 +1,5 @@
 from urllib.request import urlopen as uReq
+import random
 from bs4 import BeautifulSoup as soup
 my_url = 'https://coinmarketcap.com/all/views/all/'
 
@@ -17,9 +18,12 @@ containers = page_soup.findAll("tr",{"class":""})
 filename = "data.csv"
 f = open(filename, "w")
 
-headers = "name, market_cap, price, volume, percent_change\n"
+namesList = []
+priceList = []
+marketCapList = []
+volumeList = []
+percentChangeList = []
 
-f.write(headers)
 
 for container in containers[1:]:
 
@@ -45,4 +49,22 @@ for container in containers[1:]:
         pass
     f.write(name + "," + market_cap.replace(",", "") + "," + price.replace(",", "") + "," + volume.replace(",", "") + "," + percent_change + "\n")
 
-f.close()
+   
+    namesList.append(name)
+    priceList.append(price)
+    marketCapList.append(market_cap)
+    volumeList.append(volume)
+    percentChangeList.append(percent_change)
+
+f.close()     
+
+random_choice = random.sample(namesList,1)
+indexValue = namesList.index(random_choice[0])
+
+Random_choice_list = []
+Random_choice_list.append(namesList[indexValue])
+Random_choice_list.append(marketCapList[indexValue])
+Random_choice_list.append(priceList[indexValue])
+Random_choice_list.append(volumeList[indexValue])
+Random_choice_list.append(percentChangeList[indexValue])
+print(Random_choice_list)
