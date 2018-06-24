@@ -1,3 +1,4 @@
 {
-    "python.pythonPath": "C:\\Users\\Luke\\.virtualenvs\\CryptoApp-hGTGZ1Vq\\Scripts\\python.exe"
+    "python.pythonPath": "${workspaceFolder}\\flask\\Scripts\\python.exe",
+    "git.ignoreLimitWarning": true
 }

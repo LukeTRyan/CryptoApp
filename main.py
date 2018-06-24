@@ -1,6 +1,9 @@
 from urllib.request import urlopen as uReq
+from flask import Flask, render_template 
 import random
 from bs4 import BeautifulSoup as soup
+
+app = Flask(__name__)
 my_url = 'https://coinmarketcap.com/all/views/all/'
 
 #opening connection, grabbing page
@@ -68,3 +71,10 @@ Random_choice_list.append(priceList[indexValue])
 Random_choice_list.append(volumeList[indexValue])
 Random_choice_list.append(percentChangeList[indexValue])
 print(Random_choice_list)
+
+
+def index():
+    return render_template('index.html')
+
+if __name__ == '__main__':
+    app.run(debug=True)
