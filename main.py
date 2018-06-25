@@ -74,8 +74,8 @@ def grabCrypto():
 
 @app.route('/')
 def index():
-    Random_choice_list = grabCrypto()
-    return render_template('index.html', choices = Random_choice_list)
+    #Random_choice_list = grabCrypto()
+    return render_template('index.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
