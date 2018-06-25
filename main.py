@@ -4,77 +4,78 @@ import random
 from bs4 import BeautifulSoup as soup
 
 app = Flask(__name__)
-my_url = 'https://coinmarketcap.com/all/views/all/'
 
-#opening connection, grabbing page
-uClient = uReq(my_url)
-page_html = uClient.read()
-uClient.close()
+def grabCrypto():
+    my_url = 'https://coinmarketcap.com/all/views/all/'
+    #opening connection, grabbing page
+    uClient = uReq(my_url)
+    page_html = uClient.read()
+    uClient.close()
 
-#html parsing 
-page_soup = soup(page_html, "html.parser")
+    #html parsing 
+    page_soup = soup(page_html, "html.parser")
 
-#grabs each crypto
-containers = page_soup.findAll("tr",{"class":""})
+    #grabs each crypto
+    containers = page_soup.findAll("tr",{"class":""})
 
+    filename = "data.csv"
+    f = open(filename, "w")
 
-filename = "data.csv"
-f = open(filename, "w")
+    namesList = []
+    priceList = []
+    marketCapList = []
+    volumeList = []
+    percentChangeList = []
 
-namesList = []
-priceList = []
-marketCapList = []
-volumeList = []
-percentChangeList = []
+    for container in containers[1:]:
 
+        N = container.findAll("a", {"class":"currency-name-container"})
+        MC = container.findAll("td", {"class":"market-cap"})
+        P = container.findAll("a", {"class":"price"})
+        V = container.findAll("a", {"class":"volume"})
+        PC = container.findAll("td",{"class":"percent-change"})
 
-for container in containers[1:]:
+        name = N[0].text
+        market_cap = MC[0].text.strip()
+        try:
+            price = P[0].text
+        except: 
+            pass
+        try:    
+            volume = V[0].text
+        except: 
+            pass
+        try:    
+            percent_change = PC[0].text
+        except: 
+            pass
+        f.write(name + "," + market_cap.replace(",", "") + "," + price.replace(",", "") + "," + volume.replace(",", "") + "," + percent_change + "\n")
 
-    N = container.findAll("a", {"class":"currency-name-container"})
-    MC = container.findAll("td", {"class":"market-cap"})
-    P = container.findAll("a", {"class":"price"})
-    V = container.findAll("a", {"class":"volume"})
-    PC = container.findAll("td",{"class":"percent-change"})
+    
+        namesList.append(name)
+        priceList.append(price)
+        marketCapList.append(market_cap)
+        volumeList.append(volume)
+        percentChangeList.append(percent_change)
 
-    name = N[0].text
-    market_cap = MC[0].text.strip()
-    try:
-        price = P[0].text
-    except: 
-        pass
-    try:    
-        volume = V[0].text
-    except: 
-        pass
-    try:    
-        percent_change = PC[0].text
-    except: 
-        pass
-    f.write(name + "," + market_cap.replace(",", "") + "," + price.replace(",", "") + "," + volume.replace(",", "") + "," + percent_change + "\n")
+    f.close()     
 
-   
-    namesList.append(name)
-    priceList.append(price)
-    marketCapList.append(market_cap)
-    volumeList.append(volume)
-    percentChangeList.append(percent_change)
+    random_choice = random.sample(namesList,1)
+    indexValue = namesList.index(random_choice[0])
 
-f.close()     
-
-random_choice = random.sample(namesList,1)
-indexValue = namesList.index(random_choice[0])
-
-Random_choice_list = []
-Random_choice_list.append(namesList[indexValue])
-Random_choice_list.append(marketCapList[indexValue])
-Random_choice_list.append(priceList[indexValue])
-Random_choice_list.append(volumeList[indexValue])
-Random_choice_list.append(percentChangeList[indexValue])
-print(Random_choice_list)
+    Random_choice_list = []
+    Random_choice_list.append(namesList[indexValue])
+    Random_choice_list.append(marketCapList[indexValue])
+    Random_choice_list.append(priceList[indexValue])
+    Random_choice_list.append(volumeList[indexValue])
+    Random_choice_list.append(percentChangeList[indexValue])
+    return Random_choice_list
 
 
+@app.route('/')
 def index():
-    return render_template('index.html')
+    Random_choice_list = grabCrypto()
+    return render_template('index.html', choices = Random_choice_list)
 
 if __name__ == '__main__':
     app.run(debug=True)
