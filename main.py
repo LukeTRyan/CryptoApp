@@ -1,5 +1,5 @@
 from urllib.request import urlopen as uReq
-from flask import Flask, render_template 
+from flask import Flask, render_template, request
 import random
 from bs4 import BeautifulSoup as soup
 
@@ -74,8 +74,16 @@ def grabCrypto():
 
 @app.route('/')
 def index():
-    #Random_choice_list = grabCrypto()
     return render_template('index.html')
+
+@app.route('/generate')
+def generate_crypto():
+    Random_choice_list = grabCrypto()
+    return render_template('generated.html', choices = Random_choice_list)
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+    #Random_choice_list = grabCrypto()

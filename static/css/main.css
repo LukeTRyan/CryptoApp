@@ -1,4 +1,16 @@
 #particles-js{
-    background:firebrick;
+    background: rgb(0, 0, 197);
+    height: 1000px;
 }
 
+.center {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.homeDiv {
+    color: rgb(235, 233, 233);
+    text-align: center;
+}
