@@ -86,4 +86,4 @@ def generate_crypto():
 if __name__ == '__main__':
     app.run(debug=True)
 
-    #Random_choice_list = grabCrypto()
+    
