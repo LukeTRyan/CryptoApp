@@ -29,16 +29,37 @@
 particlesJS.load('particles-js', '/static/particles.json', function() {
     console.log('callback - particles.js config loaded');
     });
+
+        function hideStuff() {
+        var x = document.getElementById("homeDiv");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+
+    function showStuff() {
+        document.getElementById('test').style.display = "block";
+        document.getElementById('test2').style.display = "block";
+    }
 </script>
 
 <div id="particles-js">
-    <div class="homeDiv center text-center">
+        <div class="center-data" id="test">
+                <h1 class="display-5 p-5" style="color:white;">Loading data...</h1>
+            </div>
+    <div class="loader contPos" id="test2">
+    </div>
+    <div class="center text-center" id="homeDiv">
         <h1 class="display-3 p-5" style="color:white;">Random Crypto Generator</h1>
         <form method="post" action="/">
-            <a href="/generate"><input type="button" class="btn btn-success btn-lg" value="Generate Random Crypto" name="Generate Random Crypto"></a>
+            <a href="/generate"><input type="button" onclick="hideStuff(); showStuff()" class="btn btn-success btn-lg" value="Generate Random Crypto" name="Generate Random Crypto"></a>
         </form>
     </div>
 </div>
+
+
 
 </body>
 {% endblock %}
