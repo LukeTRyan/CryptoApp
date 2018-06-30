@@ -57,26 +57,33 @@ particlesJS.load('particles-js', '/static/particles.json', function() {
             <a href="/generate"><input type="button" onclick="hideStuff(); showStuff()" class="btn btn-success btn-lg" value="Generate Random Crypto" name="Generate Random Crypto"></a>
         </form>
     </div>
+    <div class="row centerName">
+        <div class="col-lg">
+            <img src="/static/cryptoIcon.jpg" alt="crypto">
+            <h1 class="display-5" id="box0" style="color:white;">{{choices[5]}}</h1>
+        </div>
+    </div>
     <div class="row info-row text-center">
         <div class="col-md">
-            <h1 class="display-5 p-5" style="color:white;">Name</h1>
-            <h1 class="display-6 p-5" style="color:white;">{{choices[0]}}</h1>
+            <h1 class="display-5" id="box1" style="color:white;">Market Cap (USD)</h1>
+            <h1 class="display-6" id="box1" style="color:white;">{{choices[0]}}</h1>
         </div>
         <div class="col-md">
-            <h1 class="display-5 p-5" style="color:white;">Market Cap</h1>
-            <h1 class="display-6 p-5" style="color:white;">{{choices[1]}}</h1>
+            <h1 class="display-5" id="box2" style="color:white;">Price (USD)</h1>
+            <h1 class="display-6" id="box2" style="color:white;">{{choices[1]}}</h1>
         </div>
         <div class="col-md">
-            <h1 class="display-5 p-5" style="color:white;">Price</h1>
-            <h1 class="display-6 p-5" style="color:white;">{{choices[2]}}</h1>
+            <h1 class="display-5" id="box3" style="color:white;">Volume (24h)</h1>
+            <h1 class="display-6" id="box3" style="color:white;">{{choices[2]}}</h1>
         </div>
         <div class="col-md">
-            <h1 class="display-5 p-5" style="color:white;">Volume</h1>
-            <h1 class="display-6 p-5" style="color:white;">{{choices[3]}}</h1>
+            <h1 class="display-5" id="box4" style="color:white;">24h Change</h1>
+            <h1 class="display-6" id="box4" style="color:white;">{{choices[3]}}</h1>
         </div>
-        <div class="col-md">
-            <h1 class="display-5 p-5" style="color:white;">24h Change</h1>
-            <h1 class="display-6 p-5" style="color:white;">{{choices[4]}}</h1>
+    </div>
+    <div class="row container">
+        <div class="more-info">
+            <h1 class="display-6"><a href='{{url}}' target="_blank" style="color:white;" >More Info</a></h1>
         </div>
     </div>
 </div>
