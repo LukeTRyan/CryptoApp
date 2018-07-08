@@ -19,7 +19,7 @@
 <!-- CSS links -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 
 <body>
@@ -31,7 +31,7 @@ particlesJS.load('particles-js', '/static/particles.json', function() {
     });
 
     function hideStuff() {
-        var x = document.getElementById("homeDiv");
+        var x = document.getElementById("homeDiv-generate");
         if (x.style.display === "none") {
             x.style.display = "block";
         } else {
@@ -49,12 +49,14 @@ particlesJS.load('particles-js', '/static/particles.json', function() {
         <div class="center-data" id="hide1">
                 <h1 class="display-5 p-5" style="color:white;">Loading data...</h1>
             </div>
-    <div class="loader contPos" id="hide2">
+    <div class="positionstuff">
+        <div class="loader" id="hide2">
+        </div>
     </div>
-    <div class="center text-center" id="homeDiv">
+    <div class="center text-center" id="homeDiv-generate">
         <h1 class="display-3 p-5" style="color:white;">Random Crypto Generator</h1>
         <form method="post" action="/">
-            <a href="/generate"><input type="button" onclick="hideStuff(); showStuff()" class="btn btn-success btn-lg" value="Generate Random Crypto" name="Generate Random Crypto"></a>
+            <a href="/generate"><input type="button" onclick="hideStuff(); showStuff()" class="btn btn-primary btn-lg" value="Generate Random Crypto" name="Generate Random Crypto"></a>
         </form>
     </div>
     <div class="row centerName">

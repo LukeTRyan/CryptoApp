@@ -1,5 +1,6 @@
+
 #particles-js{
-    background: rgb(0, 0, 197);
+    background: #212931;
     min-width: 1920px;
 }
 
@@ -17,6 +18,10 @@
 
 }
 
+.display-3{
+    font-size:4rem;
+}
+
 .center {
     position: absolute;
     top: 20%;
@@ -30,6 +35,8 @@
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
     text-decoration: none;
+    width:100%;
+    text-align: center;
 }
 
 .more-info a {
@@ -57,6 +64,26 @@
 }
 
 @media (max-width: 1369px) {
+    .more-info {
+        position: absolute;
+        top: 120%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+    }
+
+}
+
+@media (max-width: 1104px) {
+    .more-info {
+        position: absolute;
+        top: 115%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+    }
+
+}
+
+@media (max-width: 906px) {
     .more-info {
         position: absolute;
         top: 120%;
@@ -107,6 +134,16 @@
     text-align: center;
     cursor: default;
     margin-bottom: 100px;
+    margin-top:100px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#homeDiv-generate {
+    color: rgb(235, 233, 233);
+    text-align: center;
+    cursor: default;
+    margin-bottom: 100px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .info-row{
@@ -130,6 +167,7 @@
     animation-delay: 0s;
     left:5%;
     right:5%;
+    max-height: 96px;
 }
 
 #box1{
@@ -194,17 +232,26 @@ body{
     100% { transform: rotate(360deg); }
 }
 
-.contPos{
+.positionstuff{
     position: absolute;
-    top: 20%;
-    left: 46%;
-    transform: translate(-50%, -50%);
+    top: 25%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    text-align: center;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
 }
 
 .center-data {
     position: absolute;
     top: 40%;
     left: 50%;
+    width:100%;
     transform: translateX(-50%) translateY(-50%);
+    text-align: center;
     display: none;
 }

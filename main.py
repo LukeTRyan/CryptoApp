@@ -94,7 +94,6 @@ def grabCrypto():
     f.write(requests.get(imgURL).content)
     f.close()
     
-
     return Random_choice_list
 
 
