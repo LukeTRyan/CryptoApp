@@ -20,7 +20,7 @@ def grabCrypto():
     page_soup = soup(page_html, "html.parser")
 
     #grabs each crypto
-    containers = page_soup.findAll("tr",{"class":""})
+    containers = page_soup.findAll("tr",{"class":"cmc-table-row"})
 
     priceList = []
     marketCapList = []
@@ -31,11 +31,11 @@ def grabCrypto():
     #for each row (each cryptocurrency)
     for container in containers[1:]:
 
-        MC = container.findAll("td", {"class":"market-cap"})
-        P = container.findAll("a", {"class":"price"})
-        V = container.findAll("a", {"class":"volume"})
-        PC = container.findAll("td",{"class":"percent-change"})
-        URL = container.findAll("a", {"class":"link-secondary"}, {"href":""})
+        MC = container.findAll("td", {"class":"cmc-table__cell cmc-table__cell--sortable cmc-table__cell--right cmc-table__cell--sort-by__market-cap"})
+        P = container.findAll("td", {"class":"cmc-table__cell cmc-table__cell--sortable cmc-table__cell--right cmc-table__cell--sort-by__price"})
+        V = container.findAll("td", {"class":"cmc-table__cell cmc-table__cell--sortable cmc-table__cell--right cmc-table__cell--sort-by__volume-24-h"})
+        PC = container.findAll("td",{"class":"cmc-table__cell cmc-table__cell--sortable cmc-table__cell--right cmc-table__cell--sort-by__percent-change-24-h"})
+        URL = container.findAll("td", {"class":"cmc-table__cell cmc-table__cell--sticky cmc-table__cell--sortable cmc-table__cell--left cmc-table__cell--sort-by__name"}, {"href":""})
 
         match = re.search(r'href=[\'"]?([^\' >]+)', str(URL)).group(0)
         match2 = re.search(r'[\/][^href]([^\' >]+/)', str(match)).group(0)
@@ -73,6 +73,8 @@ def grabCrypto():
     Random_choice_list.append(percentChangeList[indexValue])
     Random_choice_list.append(URLList[indexValue])
 
+    print(Random_choice_list)
+
     #uses the regex url to find this random cryptos information page
     new_url = 'https://coinmarketcap.com' + Random_choice_list[4]
 
@@ -82,12 +84,16 @@ def grabCrypto():
 
     #finds the name and ticker code, and adds this to the information list
     new_soup = soup(page_html, "html.parser")
-    newName = new_soup.findAll("h1", {"class":"details-panel-item--name"})
+    newName = new_soup.findAll("h1", {"class":""})
     textName = newName[0].text
     Random_choice_list.append(textName)
 
-    images = new_soup.findAll("h1", {"class":"details-panel-item--name"})
-    imgURL = re.search(r'(http|ftp|https)://([\w_-]+(?:(?:\.[\w_-]+)+))([\w.,@?^=%&:/~+#-]*[\w@?^=%&/~+#-])?', str(images)).group(0)
+    images = new_soup.div
+    for image in images:
+        image.find('img')
+        print(image)
+    imgURL = re.search(r'(http|ftp|https)://s2.coinmarketcap', str(images)).group(0)
+    print(imgURL)
 
     path = 'C:\\Users\\Luke\\Desktop\\Projects\\CryptoApp\\static\\cryptoIcon.jpg'
     f = open(path,'wb')
