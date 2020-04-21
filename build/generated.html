@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+        
+<!-- Headers and icons -->
+<title>Random Crypto Generator</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon"  href="/static/favicon.ico" type="image/x-icon">
+        
+<!-- Jquery and JS links -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://use.fontawesome.com/32d74153b0.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
+<!-- CSS links -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+<link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<script>
+particlesJS.load('particles-js', '/static/particles.json', function() {
+    console.log('callback - particles.js config loaded');
+    });
+
+    function hideStuff() {
+        var x = document.getElementById("homeDiv-generate");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+
+    function showStuff() {
+        document.getElementById('hide1').style.display = "block";
+        document.getElementById('hide2').style.display = "block";
+    }
+</script>
+
+<div id="particles-js">
+        <div class="center-data" id="hide1">
+                <h1 class="display-5 p-5" style="color:white;">Loading data...</h1>
+            </div>
+    <div class="positionstuff">
+        <div class="loader" id="hide2">
+        </div>
+    </div>
+    <div class="center text-center" id="homeDiv-generate">
+        <h1 class="display-3 p-5" style="color:white;">Random Crypto Generator</h1>
+        <form method="post" action="/">
+            <a href="/generate"><input type="button" onclick="hideStuff(); showStuff()" class="btn btn-primary btn-lg" value="Generate Random Crypto" name="Generate Random Crypto"></a>
+        </form>
+    </div>
+    <div class="row centerName">
+        <div class="col-lg">
+            <img src="/static/cryptoIcon.jpg" alt="crypto">
+            <h1 class="display-5" id="box0" style="color:white;"> Project Pai (PAI)</h1>
+        </div>
+    </div>
+    <div class="row info-row text-center">
+        <div class="col-md">
+            <h1 class="display-5" id="box1" style="color:white;">Market Cap (USD)</h1>
+            <h1 class="display-6" id="box1" style="color:white;">$18,522,763</h1>
+        </div>
+        <div class="col-md">
+            <h1 class="display-5" id="box2" style="color:white;">Price (USD)</h1>
+            <h1 class="display-6" id="box2" style="color:white;">$0.012674</h1>
+        </div>
+        <div class="col-md">
+            <h1 class="display-5" id="box3" style="color:white;">Volume (24h)</h1>
+            <h1 class="display-6" id="box3" style="color:white;">$861,096</h1>
+        </div>
+        <div class="col-md">
+            <h1 class="display-5" id="box4" style="color:white;">24h Change</h1>
+            <h1 class="display-6" id="box4" style="color:white;">-2.48%</h1>
+        </div>
+    </div>
+    <div class="row container">
+        <div class="more-info">
+            <h1 class="display-6"><a href='https://coinmarketcap.com/currencies/project-pai/' target="_blank" style="color:white;" >More Info</a></h1>
+        </div>
+    </div>
+</div>
+
+</body>
+
+</html>

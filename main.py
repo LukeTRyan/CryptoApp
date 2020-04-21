@@ -73,8 +73,6 @@ def grabCrypto():
     Random_choice_list.append(percentChangeList[indexValue])
     Random_choice_list.append(URLList[indexValue])
 
-    print(Random_choice_list)
-
     #uses the regex url to find this random cryptos information page
     new_url = 'https://coinmarketcap.com' + Random_choice_list[4]
 
@@ -88,18 +86,15 @@ def grabCrypto():
     textName = newName[0].text
     Random_choice_list.append(textName)
 
-    images = new_soup.div
-    for image in images:
-        image.find('img')
-        print(image)
-    imgURL = re.search(r'(http|ftp|https)://s2.coinmarketcap', str(images)).group(0)
-    print(imgURL)
+    #images = new_soup.div
+    #for image in images:
+    #image.find('img')
+    #imgURL = re.search(r'(http|ftp|https)://s2.coinmarketcap', str(images)).group(0)
 
-    path = 'C:\\Users\\Luke\\Desktop\\Projects\\CryptoApp\\static\\cryptoIcon.jpg'
-    f = open(path,'wb')
-    f.write(requests.get(imgURL).content)
-    f.close()
-    
+    #path = 'C:\\Users\\Luke\\Desktop\\Projects\\CryptoApp\\static\\cryptoIcon.jpg'
+    #f = open(path,'wb')
+    #f.write(requests.get(imgURL).content)
+    #f.close()
     return Random_choice_list
 
 

@@ -1,0 +1,257 @@
+
+#particles-js{
+    background: #212931;
+    min-width: 1920px;
+}
+
+@media (max-width: 1476px) {
+    #particles-js{
+        min-width: 2500px;
+    }
+
+}
+
+@media (max-width: 767px) {
+    #particles-js{
+        min-width: 3300px;
+    }
+
+}
+
+.display-3{
+    font-size:4rem;
+}
+
+.center {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.more-info {
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    text-decoration: none;
+    width:100%;
+    text-align: center;
+}
+
+.more-info a {
+    text-decoration: none;
+}
+
+@media (max-width: 1830px) {
+    .more-info {
+        position: absolute;
+        top: 95%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+    }
+
+}
+
+@media (max-width: 1476px) {
+    .more-info {
+        position: absolute;
+        top: 115%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+    }
+
+}
+
+@media (max-width: 1369px) {
+    .more-info {
+        position: absolute;
+        top: 120%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+    }
+
+}
+
+@media (max-width: 1104px) {
+    .more-info {
+        position: absolute;
+        top: 115%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+    }
+
+}
+
+@media (max-width: 906px) {
+    .more-info {
+        position: absolute;
+        top: 120%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+    }
+
+}
+
+@media (max-width: 767px) {
+    .more-info {
+        position: absolute;
+        top: 164%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+    }
+
+}
+
+@media (max-width: 446px) {
+    .more-info {
+        position: absolute;
+        top: 169%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+    }
+
+}
+
+.centerName{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    right: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width:100%;
+    text-align: center;
+    height: 100px;
+    margin-bottom: 30px;
+}
+
+.yote{
+    text-align: right;
+}
+
+#homeDiv {
+    color: rgb(235, 233, 233);
+    text-align: center;
+    cursor: default;
+    margin-bottom: 100px;
+    margin-top:100px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#homeDiv-generate {
+    color: rgb(235, 233, 233);
+    text-align: center;
+    cursor: default;
+    margin-bottom: 100px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.info-row{
+    top:60%;
+    left:5%;
+    right:5%;
+    position: absolute;
+    cursor: default;
+}
+
+.col-md{
+    min-width: 336px;
+    background-color: rgba(255, 255, 255, 0.192);
+}
+
+#box0{
+    opacity:0;  
+    animation:fadeIn ease-in 1; 
+    animation-fill-mode:forwards;  
+    animation-duration:1s;
+    animation-delay: 0s;
+    left:5%;
+    right:5%;
+    max-height: 96px;
+}
+
+#box1{
+    opacity:0;  
+    animation:fadeIn ease-in 1; 
+    animation-fill-mode:forwards;  
+    animation-duration:1s;
+    animation-delay: 0s;
+    padding:30px;
+}
+
+#box2{
+    opacity:0;  
+    animation:fadeIn ease-in 1; 
+    animation-fill-mode:forwards;  
+    animation-duration:1.5s;
+    animation-delay: 0s;
+    padding:30px;
+}
+
+#box3{
+    opacity:0;  
+    animation:fadeIn ease-in 1; 
+    animation-fill-mode:forwards;  
+    animation-duration:2s;
+    animation-delay: 0s;
+    padding:30px;
+}
+
+#box4{
+    opacity:0;  
+    animation:fadeIn ease-in 1; 
+    animation-fill-mode:forwards;  
+    animation-duration:2.5s;
+    animation-delay: 0s;
+    padding:30px;
+}
+
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+body{
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+
+.display-6{
+    font-weight: 100;
+}
+
+.loader {
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+    display: none;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.positionstuff{
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    text-align: center;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.center-data {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    width:100%;
+    transform: translateX(-50%) translateY(-50%);
+    text-align: center;
+    display: none;
+}
